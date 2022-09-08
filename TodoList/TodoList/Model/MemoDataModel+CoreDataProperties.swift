@@ -20,8 +20,15 @@ extension MemoDataModel {
     @NSManaged public var date: Date?
     @NSManaged public var backgroundColor: Int64
 
+	var dateString: String? {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyy-mm-dd"
+		guard let date = self.date else { return "" }
+		let savedDateString = formatter.string(from: date)
+		return savedDateString
+	}
 }
 
-extension MemoDataModel : Identifiable {
+extension MemoDataModel: Identifiable {
 
 }
