@@ -7,23 +7,29 @@
 
 import UIKit
 
-class MemoViewController: UIViewController {
-
-    override func viewDidLoad() {
+final class MemoViewController: UIViewController {
+	@IBOutlet weak var redBtn: UIButton!
+	@IBOutlet weak var greenBtn: UIButton!
+	@IBOutlet weak var blueBtn: UIButton!
+	@IBOutlet weak var purpleBtn: UIButton!
+	
+	lazy var btns: [UIButton] = {
+		return [redBtn, greenBtn, blueBtn, purpleBtn]
+	}()
+	
+	@IBOutlet weak var backgroundColorView: UIView!
+	@IBOutlet weak var memoTextView: UITextView!
+	
+	@IBOutlet weak var saveBtn: UIButton!
+	
+	// MARK: LifeCycle
+	override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+	// MARK: Methods
+	@IBAction func saveBtnTapped(_ sender: UIButton) {
+	}
+	
 }
