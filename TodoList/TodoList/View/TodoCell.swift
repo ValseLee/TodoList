@@ -7,17 +7,29 @@
 
 import UIKit
 
-class TodoCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+final class TodoCell: UITableViewCell {
+	
+	@IBOutlet weak var backgroundColorView: UIView!
+	@IBOutlet weak var memoTextLabel: UILabel!
+	
+	@IBOutlet weak var dataTextLabel: UILabel!
+	@IBOutlet weak var updateBtn: UIButton!
+	
+	// MARK: LifeCycle
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		configUI()
+	}
+	
+	private func configUI() {
+		backgroundColorView.clipsToBounds = true
+		backgroundColorView.layer.cornerRadius = 8
+		
+		updateBtn.clipsToBounds = true
+		updateBtn.layer.cornerRadius = 8
+	}
+	
+	@IBAction func updateBtnTapped(_ sender: Any) {
+		
+	}
 }
