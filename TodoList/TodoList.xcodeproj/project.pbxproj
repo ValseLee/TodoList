@@ -16,6 +16,8 @@
 		7095436528CA29DE0030055A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7095436328CA29DE0030055A /* LaunchScreen.storyboard */; };
 		7095437328CA2BF20030055A /* MemoDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7095437128CA2BF20030055A /* MemoDataModel+CoreDataClass.swift */; };
 		7095437428CA2BF20030055A /* MemoDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7095437228CA2BF20030055A /* MemoDataModel+CoreDataProperties.swift */; };
+		70D6A4B028CCBAFC00499DE9 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6A4AF28CCBAFC00499DE9 /* MemoViewController.swift */; };
+		70D6A4B228CCBD1500499DE9 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D6A4B128CCBD1500499DE9 /* TodoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		7095436628CA29DE0030055A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7095437128CA2BF20030055A /* MemoDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7095437228CA2BF20030055A /* MemoDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		70D6A4AF28CCBAFC00499DE9 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		70D6A4B128CCBD1500499DE9 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		7095436D28CA2AAC0030055A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				70D6A4B128CCBD1500499DE9 /* TodoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				7095435928CA29DD0030055A /* ViewController.swift */,
+				70D6A4AF28CCBAFC00499DE9 /* MemoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,8 +181,10 @@
 				7095437428CA2BF20030055A /* MemoDataModel+CoreDataProperties.swift in Sources */,
 				7095435A28CA29DD0030055A /* ViewController.swift in Sources */,
 				7095435628CA29DD0030055A /* AppDelegate.swift in Sources */,
+				70D6A4B028CCBAFC00499DE9 /* MemoViewController.swift in Sources */,
 				7095435828CA29DD0030055A /* SceneDelegate.swift in Sources */,
 				7095436028CA29DD0030055A /* TodoList.xcdatamodeld in Sources */,
+				70D6A4B228CCBD1500499DE9 /* TodoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,14 +21,14 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="tU5-Xm-91a">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TODO_CELL" rowHeight="130" id="tU5-Xm-91a" customClass="TodoCell" customModule="TodoList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tU5-Xm-91a" id="ORd-ME-nV6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhg-Qp-ZI5" customClass="BackgroundColorView">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhg-Qp-ZI5">
                                                     <rect key="frame" x="25" y="10" width="364" height="110"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oQN-x0-ekR">
@@ -58,7 +58,8 @@
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" title="Update" image="pencil.circle.fill" catalog="system"/>
                                                                             <connections>
-                                                                                <segue destination="hLJ-aK-sqy" kind="show" id="vR9-KM-iCL"/>
+                                                                                <action selector="updateBtnTapped:" destination="tU5-Xm-91a" eventType="touchUpInside" id="WR9-nM-UTe"/>
+                                                                                <segue destination="hLJ-aK-sqy" kind="show" identifier="TO_MEMO" id="vR9-KM-iCL"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -89,6 +90,12 @@
                                                 <constraint firstItem="Vhg-Qp-ZI5" firstAttribute="top" secondItem="ORd-ME-nV6" secondAttribute="top" constant="10" id="amk-IM-KPv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="backgroundColorView" destination="Vhg-Qp-ZI5" id="ZcE-9E-AJK"/>
+                                            <outlet property="dataTextLabel" destination="g3a-Zv-3FO" id="wk3-xI-OZL"/>
+                                            <outlet property="memoTextLabel" destination="iCs-1F-udu" id="BwM-3T-oXz"/>
+                                            <outlet property="updateBtn" destination="MfV-no-xSF" id="xek-jC-zvf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -103,6 +110,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="amz-6w-GAc"/>
+                    <connections>
+                        <outlet property="tableView" destination="Bdh-s2-PlL" id="9bU-Zy-HPf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="-172" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Memo View Controller-->
         <scene sceneID="zso-BK-Ht1">
             <objects>
-                <viewController id="hLJ-aK-sqy" sceneMemberID="viewController">
+                <viewController id="hLJ-aK-sqy" customClass="MemoViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WdF-2Z-3eD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,7 +179,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24f-In-X3f" customClass="BackgroundColorView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24f-In-X3f">
                                 <rect key="frame" x="25" y="180" width="364" height="200"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="TextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZLa-zB-1B4">
@@ -195,6 +205,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="saveBtnTapped:" destination="hLJ-aK-sqy" eventType="touchUpInside" id="7Eu-99-BJN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zP4-mk-hnh"/>
@@ -213,6 +226,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="MGO-dz-G17"/>
+                    <connections>
+                        <outlet property="backgroundColorView" destination="24f-In-X3f" id="BLI-MR-T8h"/>
+                        <outlet property="blueBtn" destination="55L-jk-ETi" id="UYM-Yz-UfT"/>
+                        <outlet property="greenBtn" destination="DeO-sW-XM8" id="WIr-5a-as5"/>
+                        <outlet property="memoTextView" destination="ZLa-zB-1B4" id="8TX-Pw-0LA"/>
+                        <outlet property="purpleBtn" destination="oXu-dB-9eU" id="P4q-VR-8AW"/>
+                        <outlet property="redBtn" destination="sX5-3C-gpk" id="2LV-SA-DF6"/>
+                        <outlet property="saveBtn" destination="wb1-Fw-lzo" id="e5X-Pd-G7X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9o-1l-SAr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
