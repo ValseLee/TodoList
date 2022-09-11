@@ -11,9 +11,10 @@ final class TodoCell: UITableViewCell {
 	
 	@IBOutlet weak var backgroundColorView: UIView!
 	@IBOutlet weak var memoTextLabel: UILabel!
-	
 	@IBOutlet weak var dataTextLabel: UILabel!
 	@IBOutlet weak var updateBtn: UIButton!
+	
+	public var updateBtnTapped: (TodoCell) -> Void = { (sender) in }
 	
 	// MARK: LifeCycle
 	override func awakeFromNib() {
@@ -21,15 +22,24 @@ final class TodoCell: UITableViewCell {
 		configUI()
 	}
 	
+	override func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+	}
+	
+	// MARK: Methods
 	private func configUI() {
 		backgroundColorView.clipsToBounds = true
 		backgroundColorView.layer.cornerRadius = 8
 		
+		memoTextLabel.text = "testtest"
+		
 		updateBtn.clipsToBounds = true
 		updateBtn.layer.cornerRadius = 8
+		updateBtn.layer.backgroundColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
 	}
 	
-	@IBAction func updateBtnTapped(_ sender: Any) {
-		
+	@IBAction func updateBtnTapped(_ sender: UIButton) {
+		dump("??")
 	}
+	
 }
