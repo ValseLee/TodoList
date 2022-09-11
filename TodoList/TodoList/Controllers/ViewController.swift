@@ -26,6 +26,7 @@ final class ViewController: UIViewController {
 	// MARK: Methods
 	private func configTableView() {
 		tableView.dataSource = self
+		tableView.delegate = self
 		tableView.separatorStyle = .none
 	}
 	
@@ -44,7 +45,7 @@ final class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "TODO_CELL", for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
 		return cell
 	}
 	
@@ -56,7 +57,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		performSegue(withIdentifier: "TO_MEMO", sender: indexPath)
+//		performSegue(withIdentifier: "TO_MEMO", sender: indexPath)
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
