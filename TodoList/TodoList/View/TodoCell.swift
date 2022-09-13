@@ -31,15 +31,12 @@ final class TodoCell: UITableViewCell {
 		backgroundColorView.clipsToBounds = true
 		backgroundColorView.layer.cornerRadius = 8
 		
-		memoTextLabel.text = "testtest"
-		
 		updateBtn.clipsToBounds = true
 		updateBtn.layer.cornerRadius = 8
-		updateBtn.layer.backgroundColor = .init(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
 	}
 	
 	@IBAction func updateBtnTapped(_ sender: UIButton) {
-		dump("??")
+		updateBtnTapped(self)
 	}
 	
 }

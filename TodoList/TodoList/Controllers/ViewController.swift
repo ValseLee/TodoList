@@ -46,6 +46,12 @@ final class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
+		
+		cell.updateBtnTapped = { [weak self] sender in
+			self?.performSegue(withIdentifier: "TO_MEMO", sender: indexPath)
+		}
+		
+		cell.selectionStyle = .none
 		return cell
 	}
 	
