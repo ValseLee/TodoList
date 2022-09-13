@@ -25,11 +25,35 @@ final class MemoViewController: UIViewController {
 	// MARK: LifeCycle
 	override func viewDidLoad() {
         super.viewDidLoad()
-
+		configUI()
     }
 	
 	// MARK: Methods
 	@IBAction func saveBtnTapped(_ sender: UIButton) {
 	}
 	
+	private func configUI() {
+		backgroundColorView.clipsToBounds = true
+		backgroundColorView.layer.cornerRadius = 8
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		view.endEditing(true)
+	}
+}
+
+extension MemoViewController: UITextViewDelegate {
+	func textViewDidBeginEditing(_ textView: UITextView) {
+		if textView.text == "텍스트를 여기에 입력하세요." {
+			textView.text = nil
+			textView.textColor = .black
+		}
+	}
+	
+	func textViewDidEndEditing(_ textView: UITextView) {
+		if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+			textView.text = "텍스트를 여기에 입력하세요."
+			textView.textColor = .lightGray
+		}
+	}
 }
