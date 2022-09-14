@@ -25,16 +25,29 @@ final class MemoViewController: UIViewController {
 	// MARK: LifeCycle
 	override func viewDidLoad() {
         super.viewDidLoad()
-		configUI()
+		configBackgroundView()
+		configTextView()
     }
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		btns.forEach { btns in
+			btns.clipsToBounds = true
+			btns.layer.cornerRadius = btns.bounds.height / 2
+		}
+	}
 	
 	// MARK: Methods
 	@IBAction func saveBtnTapped(_ sender: UIButton) {
 	}
 	
-	private func configUI() {
+	private func configBackgroundView() {
 		backgroundColorView.clipsToBounds = true
 		backgroundColorView.layer.cornerRadius = 8
+	}
+	
+	private func configTextView() {
+		memoTextView.text = "MemoMemo"
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
