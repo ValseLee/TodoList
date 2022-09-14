@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701E1F9D28D20B2200AD8AE7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E1F9C28D20B2200AD8AE7 /* CoreDataManager.swift */; };
 		7095435628CA29DD0030055A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7095435528CA29DD0030055A /* AppDelegate.swift */; };
 		7095435828CA29DD0030055A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7095435728CA29DD0030055A /* SceneDelegate.swift */; };
 		7095435A28CA29DD0030055A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7095435928CA29DD0030055A /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		701E1F9C28D20B2200AD8AE7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7095435228CA29DD0030055A /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7095435528CA29DD0030055A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7095435728CA29DD0030055A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				7095435E28CA29DD0030055A /* TodoList.xcdatamodeld */,
 				7095437128CA2BF20030055A /* MemoDataModel+CoreDataClass.swift */,
 				7095437228CA2BF20030055A /* MemoDataModel+CoreDataProperties.swift */,
+				701E1F9C28D20B2200AD8AE7 /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				7095435628CA29DD0030055A /* AppDelegate.swift in Sources */,
 				70D6A4B028CCBAFC00499DE9 /* MemoViewController.swift in Sources */,
 				7095435828CA29DD0030055A /* SceneDelegate.swift in Sources */,
+				701E1F9D28D20B2200AD8AE7 /* CoreDataManager.swift in Sources */,
 				7095436028CA29DD0030055A /* TodoList.xcdatamodeld in Sources */,
 				70D6A4B228CCBD1500499DE9 /* TodoCell.swift in Sources */,
 			);
