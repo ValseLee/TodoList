@@ -15,6 +15,11 @@ final class TodoCell: UITableViewCell {
 	@IBOutlet weak var updateBtn: UIButton!
 	
 	public var updateBtnTapped: (TodoCell) -> Void = { (sender) in }
+    public var memoData: MemoDataModel? {
+        didSet {
+            configMemoData()
+        }
+    }
 	
 	// MARK: LifeCycle
 	override func awakeFromNib() {
@@ -34,6 +39,12 @@ final class TodoCell: UITableViewCell {
 		updateBtn.clipsToBounds = true
 		updateBtn.layer.cornerRadius = 8
 	}
+    
+    private func configMemoData() {
+        memoTextLabel.text = memoData?.memoText
+        dataTextLabel.text = memoData?.dateString
+        
+    }
 	
 	@IBAction func updateBtnTapped(_ sender: UIButton) {
 		updateBtnTapped(self)
