@@ -20,8 +20,8 @@ final class CoreDataManager {
 	// MARK: LifeCycle
 	private init() {}
 	
-	// MARK: Fetch Memo
-	private func getMemoListFormCoreData() -> [MemoDataModel] {
+	// MARK: Read Memo
+	public func getMemoListFromCoreData() -> [MemoDataModel] {
 		var memoData = [MemoDataModel]()
 		
 		if let context = context {
@@ -42,7 +42,7 @@ final class CoreDataManager {
 	}
 	
 	// MARK: Save Memo on Context
-	private func saveMemoData(memoText: String?, colorInt: Int64, completion: @escaping () -> Void) {
+	public func saveMemoData(memoText: String?, colorInt: Int64, completion: @escaping () -> Void) {
 		if let context = context {
 			if let entity = NSEntityDescription.entity(forEntityName: self.modelName, in: context) {
 				if let memoData = NSManagedObject(entity: entity, insertInto: context) as? MemoDataModel {
@@ -57,7 +57,7 @@ final class CoreDataManager {
 	}
 	
 	// MARK: Delete Memo
-	private func deleteMemoData(data: MemoDataModel, completion: @escaping () -> Void) {
+	public func deleteMemoData(data: MemoDataModel, completion: @escaping () -> Void) {
 		guard let date = data.date else {
 			completion()
 			return
@@ -83,7 +83,7 @@ final class CoreDataManager {
 	}
 	
 	// MARK: Update Memo
-	private func updateMemoData(newData: MemoDataModel, completion: @escaping () -> Void) {
+	public func updateMemoData(newData: MemoDataModel, completion: @escaping () -> Void) {
 		guard let date = newData.date else {
 			completion()
 			return
@@ -106,6 +106,13 @@ final class CoreDataManager {
 				completion()
 			}
 		}
-		
 	}
 }
+
+/* Memo:
+ 비동기 처리하고 싶다면 context.perform() 할 수 있다.
+ 호출 시점에 따라 오류가 있을 수 있으니 잘 모를 땐 main 쓰레드를 그대로 쓰도록 하자.
+ 
+ 
+ */
+
