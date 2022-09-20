@@ -10,6 +10,7 @@ import UIKit
 final class ViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
+    let coreDataManager = CoreDataManager.shared
 	
 	// MARK: LifeCycle
 	override func viewDidLoad() {
@@ -46,7 +47,8 @@ final class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
-		
+        let memoData = coreDataManager.getMemoListFromCoreData()
+        cell.memoData = memoData[indexPath.row]
 		cell.updateBtnTapped = { [weak self] sender in
 			self?.performSegue(withIdentifier: "TO_MEMO", sender: indexPath)
 		}

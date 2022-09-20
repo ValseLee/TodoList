@@ -19,14 +19,22 @@ final class MemoViewController: UIViewController {
 	
 	@IBOutlet weak var backgroundColorView: UIView!
 	@IBOutlet weak var memoTextView: UITextView!
-	
 	@IBOutlet weak var saveBtn: UIButton!
+    
+    private var tempColorNum: Int64? = 1
+    private let coreDataManager = CoreDataManager.shared
+    private var memoData: MemoDataModel? {
+        didSet {
+            tempColorNum = memoData?.backgroundColor
+        }
+    }
 	
 	// MARK: LifeCycle
 	override func viewDidLoad() {
         super.viewDidLoad()
 		configBackgroundView()
 		configTextView()
+        configSaveBtn()
     }
 	
 	override func viewDidLayoutSubviews() {
@@ -39,6 +47,20 @@ final class MemoViewController: UIViewController {
 	
 	// MARK: Methods
 	@IBAction func saveBtnTapped(_ sender: UIButton) {
+        if let memoData = self.memoData {
+            memoData.memoText = self.memoTextView.text
+            memoData.backgroundColor = self.tempColorNum ?? 1
+            coreDataManager.updateMemoData(newData: memoData) {
+                dump("DEBUG : Update Completed")
+                self.navigationController?.popViewController(animated: true)
+            }
+        } else {
+            let memoText = self.memoTextView.text
+            coreDataManager.saveMemoData(memoText: memoText, colorInt: tempColorNum ?? 1) {
+                dump("DEBUG : Save Compelted")
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
 	}
 	
 	private func configBackgroundView() {
@@ -47,8 +69,28 @@ final class MemoViewController: UIViewController {
 	}
 	
 	private func configTextView() {
-		memoTextView.text = "MemoMemo"
+        if let memoData = self.memoData {
+            self.title = "Updating Memo"
+            memoTextView.becomeFirstResponder()
+            
+            guard let memo = memoData.memoText else { return }
+            memoTextView.text = memo
+            memoTextView.textColor = .black
+            saveBtn.setTitle("Update", for: .normal)
+            
+        } else {
+            self.title = "New Memo"
+            memoTextView.becomeFirstResponder()
+            memoTextView.text = "메모할 내용이 뭐였더라.."
+            memoTextView.textColor = .systemGray4            
+        }
 	}
+    
+    private func configSaveBtn() {
+        saveBtn.setTitle("Save", for: .normal)
+        saveBtn.clipsToBounds = true
+        saveBtn.layer.cornerRadius = 8
+    }
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		view.endEditing(true)
