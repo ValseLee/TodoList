@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70133BCF28DB39C200D44660 /* BackgroundColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70133BCE28DB39C200D44660 /* BackgroundColorHelper.swift */; };
+		70133BD128DB3A9800D44660 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70133BD028DB3A9800D44660 /* Extensions.swift */; };
 		701E1F9D28D20B2200AD8AE7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E1F9C28D20B2200AD8AE7 /* CoreDataManager.swift */; };
 		7095435628CA29DD0030055A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7095435528CA29DD0030055A /* AppDelegate.swift */; };
 		7095435828CA29DD0030055A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7095435728CA29DD0030055A /* SceneDelegate.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70133BCE28DB39C200D44660 /* BackgroundColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorHelper.swift; sourceTree = "<group>"; };
+		70133BD028DB3A9800D44660 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		701E1F9C28D20B2200AD8AE7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7095435228CA29DD0030055A /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7095435528CA29DD0030055A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70133BCC28DB39A700D44660 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7095435E28CA29DD0030055A /* TodoList.xcdatamodeld */,
+				7095437128CA2BF20030055A /* MemoDataModel+CoreDataClass.swift */,
+				7095437228CA2BF20030055A /* MemoDataModel+CoreDataProperties.swift */,
+				701E1F9C28D20B2200AD8AE7 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		70133BCD28DB39B200D44660 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				70133BCE28DB39C200D44660 /* BackgroundColorHelper.swift */,
+				70133BD028DB3A9800D44660 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7095434928CA29DD0030055A = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +94,7 @@
 			children = (
 				7095435528CA29DD0030055A /* AppDelegate.swift */,
 				7095435728CA29DD0030055A /* SceneDelegate.swift */,
+				70133BCD28DB39B200D44660 /* Helpers */,
 				7095436C28CA2AAA0030055A /* Model */,
 				7095436D28CA2AAC0030055A /* View */,
 				7095436E28CA2AB20030055A /* Controllers */,
@@ -84,10 +109,7 @@
 		7095436C28CA2AAA0030055A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7095435E28CA29DD0030055A /* TodoList.xcdatamodeld */,
-				7095437128CA2BF20030055A /* MemoDataModel+CoreDataClass.swift */,
-				7095437228CA2BF20030055A /* MemoDataModel+CoreDataProperties.swift */,
-				701E1F9C28D20B2200AD8AE7 /* CoreDataManager.swift */,
+				70133BCC28DB39A700D44660 /* CoreData */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,7 +209,9 @@
 				70D6A4B028CCBAFC00499DE9 /* MemoViewController.swift in Sources */,
 				7095435828CA29DD0030055A /* SceneDelegate.swift in Sources */,
 				701E1F9D28D20B2200AD8AE7 /* CoreDataManager.swift in Sources */,
+				70133BCF28DB39C200D44660 /* BackgroundColorHelper.swift in Sources */,
 				7095436028CA29DD0030055A /* TodoList.xcdatamodeld in Sources */,
+				70133BD128DB3A9800D44660 /* Extensions.swift in Sources */,
 				70D6A4B228CCBD1500499DE9 /* TodoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
