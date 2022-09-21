@@ -43,7 +43,10 @@ final class TodoCell: UITableViewCell {
     private func configMemoData() {
         memoTextLabel.text = memoData?.memoText
         dataTextLabel.text = memoData?.dateString
-        
+        guard let colorNum = memoData?.backgroundColor else { return }
+        let color = BackgroundColor(rawValue: colorNum)
+        updateBtn.backgroundColor = color?.getBtnColor
+        backgroundColorView.backgroundColor = color?.getBackgroundColor
     }
 	
 	@IBAction func updateBtnTapped(_ sender: UIButton) {
