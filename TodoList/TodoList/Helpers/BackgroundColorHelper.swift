@@ -10,16 +10,30 @@ import UIKit
 enum BackgroundColor: Int64 {
     case red = 1, green, blue, purple
     
-    public var getBackgroundColor {
+    // MARK: 외않되???
+    public var getBackgroundColor: UIColor {
         switch self {
         case .red:
-            return UIColor(red: , green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: 1)
+            return UIColor(hex: "#F25A5A")!
         case .green:
-            return UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: 1)
+            return UIColor(hex: "#82F6A1")!
         case .blue:
-            return UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: 1)
+            return UIColor(hex: "#9AE1FF")!
         case .purple:
-            return UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: 1)
+            return UIColor(hex: "#C6ACFA")!
+        }
+    }
+    
+    public var getBtnColor: UIColor {
+        switch self {
+        case .red:
+            return UIColor(hex: "#F25A5A")!
+        case .green:
+            return UIColor(hex: "#82F6A1")!
+        case .blue:
+            return UIColor(hex: "#9AE1FF")!
+        case .purple:
+            return UIColor(hex: "#C6ACFA")!
         }
     }
 }
