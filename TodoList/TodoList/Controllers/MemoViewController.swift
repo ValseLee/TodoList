@@ -62,7 +62,53 @@ final class MemoViewController: UIViewController {
             }
         }
 	}
-	
+    
+    // MARK: Color Theme Config
+    @IBAction func colorBtnTapped(_ sender: UIButton) {
+        let colorNums = Int64(sender.tag)
+        tempColorNum = colorNums
+        let color = BackgroundColor(rawValue: colorNums)
+        configBackgroundColor(color: color)
+        configBtnColor()
+        configBtnTheme(num: colorNums)
+    }
+    
+    private func configBackgroundColor(color: BackgroundColor? = .red) {
+        backgroundColorView.backgroundColor = color?.getBackgroundColor
+        saveBtn.backgroundColor = color?.getBtnColor
+    }
+    
+    private func configBtnColor() {
+        redBtn.backgroundColor = BackgroundColor.red.getBackgroundColor
+        redBtn.setTitleColor(BackgroundColor.red.getBackgroundColor, for: .normal)
+        greenBtn.backgroundColor = BackgroundColor.green.getBackgroundColor
+        greenBtn.setTitleColor(BackgroundColor.green.getBackgroundColor, for: .normal)
+        blueBtn.backgroundColor = BackgroundColor.blue.getBackgroundColor
+        blueBtn.setTitleColor(BackgroundColor.blue.getBackgroundColor, for: .normal)
+        purpleBtn.backgroundColor = BackgroundColor.purple.getBackgroundColor
+        purpleBtn.setTitleColor(BackgroundColor.purple.getBackgroundColor, for: .normal)
+    }
+    
+    private func configBtnTheme(num: Int64) {
+        switch num {
+        case 1:
+            redBtn.backgroundColor = BackgroundColor.red.getBtnColor
+            redBtn.setTitleColor(.white, for: .normal)
+        case 2:
+            greenBtn.backgroundColor = BackgroundColor.green.getBtnColor
+            greenBtn.setTitleColor(.white, for: .normal)
+        case 3:
+            blueBtn.backgroundColor = BackgroundColor.blue.getBtnColor
+            blueBtn.setTitleColor(.white, for: .normal)
+        case 4:
+            purpleBtn.backgroundColor = BackgroundColor.purple.getBtnColor
+            purpleBtn.setTitleColor(.white, for: .normal)
+        default:
+            redBtn.backgroundColor = BackgroundColor.red.getBtnColor
+            redBtn.setTitleColor(.white, for: .normal)
+        }
+    }
+    
 	private func configBackgroundView() {
 		backgroundColorView.clipsToBounds = true
 		backgroundColorView.layer.cornerRadius = 8
