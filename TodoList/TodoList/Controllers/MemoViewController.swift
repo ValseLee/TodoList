@@ -35,6 +35,7 @@ final class MemoViewController: UIViewController {
 		configBackgroundView()
 		configTextView()
         configSaveBtn()
+        configBtnColor()
     }
 	
 	override func viewDidLayoutSubviews() {
@@ -71,6 +72,7 @@ final class MemoViewController: UIViewController {
         configBackgroundColor(color: color)
         configBtnColor()
         configBtnTheme(num: colorNums)
+        configSaveBtn()
     }
     
     private func configBackgroundColor(color: BackgroundColor? = .red) {
@@ -93,19 +95,19 @@ final class MemoViewController: UIViewController {
         switch num {
         case 1:
             redBtn.backgroundColor = BackgroundColor.red.getBtnColor
-            redBtn.setTitleColor(.white, for: .normal)
+            redBtn.setTitleColor(.black, for: .normal)
         case 2:
             greenBtn.backgroundColor = BackgroundColor.green.getBtnColor
-            greenBtn.setTitleColor(.white, for: .normal)
+            greenBtn.setTitleColor(.black, for: .normal)
         case 3:
             blueBtn.backgroundColor = BackgroundColor.blue.getBtnColor
-            blueBtn.setTitleColor(.white, for: .normal)
+            blueBtn.setTitleColor(.black, for: .normal)
         case 4:
             purpleBtn.backgroundColor = BackgroundColor.purple.getBtnColor
-            purpleBtn.setTitleColor(.white, for: .normal)
+            purpleBtn.setTitleColor(.black, for: .normal)
         default:
             redBtn.backgroundColor = BackgroundColor.red.getBtnColor
-            redBtn.setTitleColor(.white, for: .normal)
+            redBtn.setTitleColor(.black, for: .normal)
         }
     }
     
@@ -128,11 +130,23 @@ final class MemoViewController: UIViewController {
             self.title = "New Memo"
             memoTextView.becomeFirstResponder()
             memoTextView.text = "메모할 내용이 뭐였더라.."
-            memoTextView.textColor = .systemGray4            
+            memoTextView.textColor = .black.withAlphaComponent(0.7)
         }
 	}
     
     private func configSaveBtn() {
+        switch tempColorNum {
+        case 1:
+            saveBtn.setTitleColor(.white, for: .normal)
+        case 2:
+            saveBtn.setTitleColor(.black, for: .normal)
+        case 3:
+            saveBtn.setTitleColor(.black, for: .normal)
+        case 4:
+            saveBtn.setTitleColor(.black, for: .normal)
+        default:
+            saveBtn.setTitleColor(.white, for: .normal)
+        }
         saveBtn.setTitle("Save", for: .normal)
         saveBtn.clipsToBounds = true
         saveBtn.layer.cornerRadius = 8
