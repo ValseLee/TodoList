@@ -23,12 +23,10 @@ extension MemoDataModel {
 	var dateString: String? {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "yyyy-mm-dd"
+        formatter.locale = Locale(identifier: "ko-KR")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
 		guard let date = self.date else { return "" }
 		let savedDateString = formatter.string(from: date)
 		return savedDateString
 	}
-}
-
-extension MemoDataModel: Identifiable {
-
 }
