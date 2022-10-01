@@ -49,6 +49,8 @@ extension ViewController: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
         let memoData = coreDataManager.getMemoListFromCoreData()
         cell.memoData = memoData[indexPath.row]
+        
+        // MARK: 여기서는 메모데이타가 찍히는데 메모 업데이트 뷰에서는 안 찍힌다..??
 		cell.updateBtnTapped = { [weak self] sender in
 			self?.performSegue(withIdentifier: "TO_MEMO", sender: indexPath)
 		}
