@@ -23,7 +23,7 @@ final class MemoViewController: UIViewController {
     
     private var tempColorNum: Int64? = 1
     private let coreDataManager = CoreDataManager.shared
-    private var memoData: MemoDataModel? {
+    public var memoData: MemoDataModel? {
         didSet {
             tempColorNum = memoData?.backgroundColor
         }
@@ -125,7 +125,8 @@ final class MemoViewController: UIViewController {
             memoTextView.text = memo
             memoTextView.textColor = .black
             saveBtn.setTitle("Update", for: .normal)
-            
+            let color = BackgroundColor(rawValue: memoData.backgroundColor)
+            configBackgroundColor(color: color)
         } else {
             self.title = "New Memo"
             memoTextView.becomeFirstResponder()

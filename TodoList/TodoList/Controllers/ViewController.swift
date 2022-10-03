@@ -50,7 +50,6 @@ extension ViewController: UITableViewDataSource {
         let memoData = coreDataManager.getMemoListFromCoreData()
         cell.memoData = memoData[indexPath.row]
         
-        // MARK: 여기서는 메모데이타가 찍히는데 메모 업데이트 뷰에서는 안 찍힌다..??
 		cell.updateBtnTapped = { [weak self] sender in
 			self?.performSegue(withIdentifier: "TO_MEMO", sender: indexPath)
 		}
@@ -66,6 +65,15 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TO_MEMO" {
+            let memoViewController = segue.destination as! MemoViewController
+            
+            guard let indexPath = sender as? IndexPath else { return }
+            memoViewController.memoData = coreDataManager.getMemoListFromCoreData()[indexPath.row]
+        }
+    }
+    
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //		performSegue(withIdentifier: "TO_MEMO", sender: indexPath)
 	}
